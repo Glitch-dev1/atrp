@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block style %}
+<style>
+/*body {
+  background: linear-gradient(rgb(166, 237, 255), rgb(47, 179, 212));*/
+}
+body {
+  background: #f2f2f2;
+  
+  width: 100%;
+  color: #f2f2f2;
+  display: flex;
+  align-items: column;
+}
+
+.field {
+  background: #6ea8ff;
+  border: 0.3px solid grey;
+  color: white;
+  padding: 15px;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  border-radius: 12px;
+  margin-left: 10%;
+  
+}
+.mylink {
+  color: blue;
+}
+#atrph2 {
+  width: 100%;
+  background: red;
+  color: white;
+  border: 1px solid black;
+  border-radius: 7px;
+  padding: 13px;
+  text-align: center;
+  margin-top: 10px;
+}
+.bgimg {
+  
+}
+</style>
+{% endblock %}
+
+{% block navapplyvisa %}
+active
+{% endblock %}
+
+{% block content %}
+<center>
+ {% for msg in messages %} 
+<div id= "alertid" class= "alert alert-success mt-3 alert-dismissable fade show" role= "alert">{{msg}} <button data-dismiss= "alert" class= "close"><span>&times;</span></button>
+</div>
+{% endfor %}
+<h2 id="atrph2" class="">ARPUTHA THEEVU ROLEPLAY V 4.0</h2><br>
+<img class=" bgimg col-xs-12 col-md-12" src="https://media.discordapp.net/attachments/848155822797488189/875659823897796678/standard.gif">
+  </div>
+<form method="POST">
+  {% csrf_token %}
+  <div class="field">
+    <label for="#rn">REAL NAME :</label>
+  <input id="rn" class="form-control" name="realname" placeholder="(Ex:Joe Biden)">
+    </div>
+    <div class="field">
+      <label for="#rage">REAL AGE :</label>
+      <input type="number" id="rage" class="form-control" name="realage" placeholder="(Ex:18)"></div><br>
+      <div class="field ">GENDER : {{form.gender}}</div><br>
+    
+    <div class="field"><label for="#dcn">DISCORD USERNAME :</label>
+    <input id="dcn" class="form-control" name="discordname" placeholder="(Ex:Username#1234)">
+    </div><hr>
+    <div class="field"><label for="#ign">IG NAME :</label>
+    <input id="ign" class="form-control" name="igname" placeholder="(Ex:Mcdonald_Trumpet)"></div><br>
+    <div class="field"><label for="#iga">IG AGE :</label>
+    <input type="number" id="iga" class="form-control" name="igage" placeholder="(Ex:18)"></div>
+    <div class="field">IG GENDER : {{form.iggender}}</div>
+    <div class="field"><label for="#cs">CHARACTER STORY :</label>
+    <textarea id="cs" class="form-control" name="characterstory" placeholder="I am Mcdonald_Trumpet, I was the old president of US.I came here to eat Street foods and enjoy my retired life on ARPUTHA THEEVU(Bars)"></textarea></div><br>
+    <div class="field"><label for="#rprules">Did You Read RP Rules?
+    if not click here <a class="mylink" href="https://discord.gg/63Qt92x3UM"><u>Discord Link </u></a></label>  {{form.rprules}} Yes</div><br>
+    <div class="field">YOUR ROLEPLAY EXPERIENCE : {{form.rpexp}} </div><br>
+  <input type="submit" class="btn btn-primary" value="submit">
+  </div>
+</form>
+</div>
+</center>
+{% endblock %}

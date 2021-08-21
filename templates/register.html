@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block style %}
+<style>
+
+
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to bottom right , #2980b9, #8e44ad);
+  height: 100vh;
+}
+
+
+.whole {
+  
+  
+  margin-top: 30px;
+  
+  background: white;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+  width: 80%;
+  min-width: 100px;
+  max-width: 650px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  
+}
+
+.form-contro {
+  border: none;
+  /*border-bottom: 4px solid #8ed1f5;*/
+  outline: none;
+  border-bottom: 2px solid silver;
+  width: 100%;
+  height: 50px;
+  margin-top: 5px;
+  font-size: 14pt;
+  
+}
+
+.img1 {
+  display: none;
+}
+
+input[type="submit"] {
+  width: 100%;
+  border-radius: 20px;
+  margin-left: 5px;
+}
+
+.alert {
+  width: 100%;
+}
+
+.regtxt {
+  font-family: 'Teko', sans-serif;
+}
+
+
+.material-icons {
+  
+  transform: translate(-100px, -43px);
+  text-align: left;
+  transition: .4s;
+}
+
+#username_f:focus ~ #acc_icon,
+#username_f:valid ~ #acc_icon{
+  transform: translate(-100px,-70px);
+}
+
+#password_f:focus ~ #lock_icon,
+#password_f:valid ~ #lock_icon {
+  transform: translate(-100px,-70px);
+}
+
+#email_f:focus ~ #email_icon,
+#email_f:valid ~ #email_icon {
+  transform: translate(-100px,-70px);
+}
+
+#password_f2:focus ~ #lock_icon2,
+#password_f2:valid ~ #lock_icon2 {
+  transform: translate(-100px,-70px);
+}
+
+
+
+.form-contro:focus,
+.form-contro:valid {
+  border-bottom: 3px solid #8ed1f5;
+}
+
+span {
+  pointer-events: none;
+}
+
+@media screen and (min-width: 600px) {
+  [class*="material-icons"] {
+    transform: translate(-1200%, -160%);
+    transition: .3s;
+  }
+  #username_f:focus ~ #acc_icon,
+  #username_f:valid ~ #acc_icon{
+    transform: translate(-1200%,-280%);
+}
+
+  #password_f:focus ~ #lock_icon,
+  #password_f:valid ~ #lock_icon {
+    transform: translate(-1200%,-280%);
+}
+  #email_f:focus ~ #email_icon,
+  #email_f:valid ~ #email_icon{
+    transform: translate(-1200%,-280%);
+  }
+  #password_f2:focus ~ #lock_icon2,
+  #password_f2:valid ~ #lock_icon2{
+    transform: translate(-1200%,-280%);
+  }
+  
+  .form-contro {
+    font-size: 16pt;
+  }
+  body {
+    background: url("https://media.discordapp.net/attachments/569806298120454146/877484078650249257/image_downloader_1629278873180.jpg");
+    object-fit: cover;
+    height: 100vh;
+    background-size: 100%, 100%;
+  }
+  .whole {
+    margin-left: 50%;
+    
+  }
+  .img1 {
+    display: block;
+    position: absolute;
+    width: 30%;
+    height: 59%;
+    
+    margin-left: 210px;
+    margin-top: 130px;
+    border-radius: 50%;
+    
+  }
+  
+  
+}
+
+</style>
+{% endblock %}
+
+{% block navregister %}
+active
+{% endblock %}
+
+{% block content %}
+<center>
+   {% for msg in messages %} 
+<div id= "alertid" class= "alert alert-info mt-3 alert-dismissable fade show" role= "alert">{{msg}} <button data-dismiss= "alert" class= "close"><span>&times;</span></button>
+</div>
+{% endfor %}
+  <img class="img1" src="https://media.discordapp.net/attachments/569806298120454146/878298196160446474/Photo_1629308717888.png">
+<div class="whole">
+  <h1 class="regtxt">ʀᴇɢɪsᴛᴇʀ</h1>
+	<form class= "form-group" method="POST">
+		{% csrf_token %}
+         <input id="username_f" class= "form-contro" type= "text" name= "username" placeholder="        Username" required><span class="material-icons " id="acc_icon">account_circle</span>
+         <div class="help-block"><small class="text-secondary">{{form.username.errors}}</small></div><br>
+       
+       <input id="email_f" class= "form-contro" type="email" name="email" placeholder="        Email" required><span id="email_icon" class="material-icons">email</span>
+       <div class="help-block"><small class="text-secondary">{{form.email.errors}}</small></div><br>
+      
+       <input id="password_f" class= "form-contro" type= "password" name= "password1" placeholder="        Password" required><span class="material-icons " id="lock_icon">lock</span>
+       <div class="help-block"><small class="text-secondary">{{form.password1.errors}}</small></div><br>
+       
+       <input id="password_f2" class= "form-contro" type= "password" name= "password2" placeholder="        Repeat password" required><span class="material-icons " id="lock_icon2">lock</span>
+       
+     <div class="help-block"><small class="text-secondary">{{form.password2.errors}}</small></div><br>
+     
+		  <input class="btn btn-primary " type="submit" value= "Register">
+		  <span class="last_span"></span>
+	  </form>
+	  
+  <h5 class= "alert ">Already have an account? <a href= "/login/">login</a>
+</h5></div>
+</center>
+{% endblock %}

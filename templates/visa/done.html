@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block style %}
+<style>
+body {
+  /*background: linear-gradient(rgb(166, 237, 255), rgb(47, 179, 212));*/
+  background: white;
+}
+
+#donetxt {
+  background: white;
+  font-size: 50%;
+  width: 100%;
+  
+}
+.alert {
+  font-size: 30px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<center></center>
+<div id="donetxt">
+  
+  <div class="alert alert-success alert-lg">Form has been Successfully submitted</div>
+</div>
+{% endblock %}

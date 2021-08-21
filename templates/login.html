@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block style %}
+<style>
+#formi {
+  background-color : #23379B;
+  color: white;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom right , #2980b9, #8e44ad);
+  height: 100vh;
+  
+  
+}
+
+.whole {
+  /*display: flex;
+  flex-direction: column;
+  
+  background: white;
+  padding: 0px 35px 20px 20px;
+  
+  width: 80%;
+  min-width: 100px;
+  max-width: 650px;
+  border-radius: 12px;*/
+  margin-top: 40px;
+  
+  background: white;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+  
+  
+  width: 90%;
+  min-width: 100px;
+  max-width: 650px;
+  border-radius: 12px;
+  
+  
+}
+
+/*.whole {
+  top: 20%;
+  left: 10%;
+  right: 13%;
+  margin: 20% 5% 15% 10%;
+  max-height: 470px;
+  padding-bottom: 20px;*/
+  
+}
+.login_head {
+  text-align: center;
+  margin-bottom: 10px;
+  /*transform: translate(0, -50%);*/
+  text-align: center;
+  padding: 0px 0px 20px 0px;
+  border-bottom: 1px solid silver;
+  
+}
+
+.form-contro {
+  position: relative;
+  border: none;
+  /*border-bottom: 4px solid #8ed1f5;*/
+  outline: none;
+  border-bottom: 1px solid silver;
+  width: 100%;
+  height: 50px;
+  font-size: 14pt;
+  
+  
+}
+
+input[type="submit"] {
+  width: 100%;
+  border-radius: 20px;
+  margin-left: 10px;
+}
+
+.login_head {
+  font-family: 'Teko', Sans-Serif;
+  font-size: 40px;
+}
+
+.material-icons {
+  
+  transform: translate(-500%, -160%);
+  text-align: left;
+  transition: .3s;
+}
+
+#username_f:focus ~ #acc_icon,
+#username_f:valid ~ #acc_icon{
+  transform: translate(-500%,-280%);
+}
+
+#password_f:focus ~ #lock_icon,
+#password_f:valid ~ #lock_icon {
+  transform: translate(-500%,-280%);
+}
+
+.form-contro:focus,
+.form-contro:valid {
+  border-bottom: 3px solid #8ed1f5;
+}
+
+#username_f {
+  margin-top: 40px;
+  
+}
+
+span {
+  pointer-events: none;
+  
+}
+/*
+for tablet:
+min-width: 600px;
+
+for desktop:
+min-width: 768px;
+
+*/
+
+@media screen and (min-width: 600px) {
+  [class*="material-icons"] {
+    transform: translate(-1200%, -160%);
+    transition: .3s;
+  }
+  #username_f:focus ~ #acc_icon,
+  #username_f:valid ~ #acc_icon{
+    transform: translate(-1200%,-280%);
+}
+
+  #password_f:focus ~ #lock_icon,
+  #password_f:valid ~ #lock_icon {
+    transform: translate(-1200%,-280%);
+}
+  .form-contro {
+    font-size: 16pt;
+  }
+  
+  .whole {
+    margin-top: 90px;
+  }
+  
+  body {
+    background: url("https://media.discordapp.net/attachments/832144973901332506/878231771681009694/wp5334246-gta-v-4k-wallpapers.jpg");
+    height: 100vh;
+    background-size: 100%, 100vw;
+  }
+  
+}
+</style>
+{% endblock %}
+
+{% block navlogin %}
+active
+{% endblock %}
+
+{% block content %}
+<center>
+<div class="whole">
+ {% for msg in messages %} 
+<div id= "alertid" class= "alert alert-danger mt-3 alert-dismissable fade show" role= "alert">{{msg}} <button data-dismiss= "alert" class= "close"><span>&times;</span></button>
+</div>
+{% endfor %}
+<form class= "mt-5" method= "POST">{% csrf_token %}
+  <h1 class="login_hea">ʟᴏɢɪɴ</h1>
+  <div id= "formid" class= "">
+  <div class= "form-group ">
+    <!--<label class= "label u_label" for = "username_f">Username </label>-->
+    <input id= "username_f" type= "text" name= "username" placeholder="      Username" class= "form-contro" required><span class="material-icons " id="acc_icon">account_circle</span>
+  </div>
+  <div class= "form-group">
+    <!--<label class="label p_label" for="#password_f">Password</label>-->
+    <input placeholder="      Password" id= "password_f" type= "password" name= "password" class= "form-contro" required><span class="material-icons" id="lock_icon">lock</span>
+  </div><br>
+    <input class= "btn btn-primary mb-4" type= "submit" value= "Login">
+  </div>
+</form>
+<h3 class="">Dont have an account? <a href="/register/">Register</a>
+</div></center><br><br>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Visa Forms
+{% endblock %}
+
+{% block style %}
+<style>
+  .ccard {
+    display: none;
+  }
+</style>
+{% endblock %}
+
+{% block navvisa %}
+active
+{% endblock %}
+
+{% block content %}
+{% if user.is_staff %}
+<table class="table table-bordered table-hovered  table-responsive">
+  <tr>
+    <th>Real Name</th>
+    <th>Real Age</th>
+    <th>Gender</th>
+    <th>Discord Username</th>
+    <th>IG Name</th>
+    <th>IG Age</th>
+    <th>IG Gender</th>
+    <th>Read Rules</th>
+    <th>RP Experience</th>
+    <th>Character Story</th>
+  </tr>
+  {% for obj in object %}
+  <tr>
+    <td>{{obj.realname}}</td>
+    <td>{{obj.realage}}</td>
+    <td>{{obj.gender}}</td>
+    <td>{{obj.discordname}}</td>
+    <td>{{obj.igname}}</td>
+    <td>{{obj.igage}}</td>
+    <td>{{obj.iggender}}</td>
+    <td>{{obj.rprules}}</td>
+    <td>{{obj.rpexp}}</td>
+    <td>{{obj.characterstory}}</td>
+    
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+</header>You Are not authorized to view this Page</header>
+{% endif %}
+<div class="ccard">
+  <form method="POST">
+    {% csrf_token %}
+  <div class="head">Delete</div>
+  <h6 class="text">do you really want to delete this Visa?</h6>
+    <input class="btn btn-danger" type="submit" value="Yes">
+  </form>  
+</div>
+{% endblock %}
