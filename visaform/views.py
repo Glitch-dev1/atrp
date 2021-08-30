@@ -1,32 +1,34 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
-from .forms import *
+from decorators import *
+from .forms import Visarform
+from .models import VisaModel
+
+@login_required(login_url="/login")
+def visa(request):
+  return redirect(f'/visa/{request.user.id}')
 
 
-def visaCreate(request):
-  if request.method == 'POST':
-    form = VisaForm(request.POST)
-    if form.is_valid():
-      form.save()
-  else:
-    form = VisaForm()
-  context = {
-    "form" : form
-  }
-  return render(request, 'visa/create.html', context)
+from django.forms.models import inlineformset_factory
+
 
 @login_required(login_url="/login") 
 def visaView(request):
   if request.method == 'POST':
     form = Visarform(request.POST)
     if form.is_valid():
-      form.save()
+      form.user = request.user
+      task = form.save(commit=False)
+      task.user = request.user.username
+      task.save()
       return redirect('/visa/done')
   else:
-    form = Visarform()
+     form = Visarform()
   context = {
     "form": form
+    
   }
   return render(request, 'visa/main.html', context)
 
@@ -37,6 +39,7 @@ def visaDone(request):
   }
   return render(request, 'visa/done.html', context)
 
+@admin_only
 def visaAdmin(request):
   objects = VisaModel.objects.all()
   context = {
@@ -44,26 +47,10 @@ def visaAdmin(request):
   }
   return render(request, 'visa/view.html', context)
 
-
-@login_required(login_url='/login/')
-def avatar_update(request, pk):
-  context = {}
-  if request.method == 'POST':
-    form = ProfileForm(request.POST)
-    user = request.user
-    if form.is_valid():
-      user = form.save()
-    
-  else:
-    form = ProfileForm()
-  context['form'] = form
-  
-  return render(request, 'profile/update.html', context)
-
+@admin_only
 def visa_delete(request, id):
   context={}
   obj = get_object_or_404(VisaModel, id=id)
-  if request.method == 'POST':
-    obj.delete()
-    return redirect('/visa/view')
+  obj.delete()
+  return redirect('/visa/view')
 

@@ -15,14 +15,28 @@
           href="https://fonts.googleapis.com/css?family=Tangerine">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <title>{% block title %}Home{% endblock %}</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One');
   * {
     box-sizing: border-box;
   }
-    
+  .navbar-brand {
+    font-family: 'Righteous', cursive;
+  }
+  .nav-link {
+    font-family: 'Righteous', cursive;
+  }
+@media (min-width:650px) {
+  .navbar-brand {
+    font-family: 'Righteous', cursive;
+  }
+  .nav-link {
+    font-family: 'Righteous', cursive;
+  }
+}
 </style>
   {% block style %}
 <style>
@@ -50,16 +64,30 @@
       {% else %}
       {% endif %}
       {% if user.is_staff %}
-      <li class="nav-item">
-        <a class="nav-link {% block navvisa %}{% endblock %}" href="/visa/view">Submitted Visa</a>
-      </li>
-      <li class= "nav-item">
-        <a class="nav-link" href="/admin">Admin Portal</a>
-      </li>
-      
+  <div class="dropdown">
+    <a class=" nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Admin</a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item{% block navvisa %}{% endblock %}" href="/visa/view">Submitted Visa</a>
+      <a class="dropdown-item" href="{% url 'send_mail' %}">Send Mail</a>
+      <a href="/admin" class="dropdown-item">Database</a>
+    </div>
+  </div>
       {% else %}
       {% endif %}
       {% if user.is_authenticated %}
+   <div class="dropdown">
+    <a class=" nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    account
+  </a>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton{% block navprofile %}{% endblock %}">
+    <a class="dropdown-item" href="{% url 'profile_update' %}">Profile Update</a>
+    <a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a>
+  </div>
+</div>
+      <li class="nav-item d-none">
+        <a class=" nav-link" href="/gallery/">Gallery</a>
+      </li>
       <li class="nav-item">
         <a class=" nav-link" href="https://wiki.multitheftauto.com/wiki/Vehicle_IDs">Vehicle IDs</a>
       </li>
@@ -71,10 +99,13 @@
       </li>
       {% else %}
       <li class="nav-item">
-        <a class= "nav-link {% block navregister %}{% endblock %}" href="/register/">Register</a>
+        <a class="nav-link {% block navregister %}{% endblock %}" href="/register/">Register</a>
       </li>
       <li class="nav-item">
         <a class="nav-link {% block navlogin %}{% endblock %}" href="/login/">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class=" nav-link d-none" href="/gallery/">Gallery</a>
       </li>
       <li class="nav-item">
         <a class=" nav-link" href="https://team.sa-mp.com/wiki/Category_Vehicle.html">Vehicle IDs</a>

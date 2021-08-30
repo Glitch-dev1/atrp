@@ -64,6 +64,9 @@ input[type="submit"] {
   font-family: 'Teko', sans-serif;
 }
 
+.help {
+  font-family: 'Righteous', Sans-Serif;
+}
 
 .material-icons {
   
@@ -135,22 +138,6 @@ span {
     height: 100vh;
     background-size: 100%, 100%;
   }
-  .whole {
-    margin-left: 50%;
-    
-  }
-  .img1 {
-    display: block;
-    position: absolute;
-    width: 30%;
-    height: 59%;
-    
-    margin-left: 210px;
-    margin-top: 130px;
-    border-radius: 50%;
-    
-  }
-  
   
 }
 
@@ -167,9 +154,8 @@ active
 <div id= "alertid" class= "alert alert-info mt-3 alert-dismissable fade show" role= "alert">{{msg}} <button data-dismiss= "alert" class= "close"><span>&times;</span></button>
 </div>
 {% endfor %}
-  <img class="img1" src="https://media.discordapp.net/attachments/569806298120454146/878298196160446474/Photo_1629308717888.png">
 <div class="whole">
-  <h1 class="regtxt">ʀᴇɢɪsᴛᴇʀ</h1>
+  <h1 class="regtxt">REGISTER</h1>
 	<form class= "form-group" method="POST">
 		{% csrf_token %}
          <input id="username_f" class= "form-contro" type= "text" name= "username" placeholder="        Username" required><span class="material-icons " id="acc_icon">account_circle</span>
@@ -189,7 +175,8 @@ active
 		  <span class="last_span"></span>
 	  </form>
 	  
-  <h5 class= "alert ">Already have an account? <a href= "/login/">login</a>
+  <h5 class= "m-2 help">Already have an account? <a href= "/login/">login</a>
 </h5></div>
+    {% include 'footer.html' %}
 </center>
 {% endblock %}

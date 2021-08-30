@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Gallery{% endblock %}
+{% block style %}
+<style>
+body {
+  background: #ffffff;
+}
+.whole {
+  background: #ffffff;
+  width: ;
+  
+  display: grid;
+  justify-items: center;
+  
+}
+h1 {
+  font-weight: bold;
+}
+.img {
+  display: grid;
+  gap: 13px;
+  
+}
+@media screen and (min-width:600px) {
+  .img {
+    
+    grid-template-columns: repeat(3,1fr);
+  }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="whole">
+<h1>Gallery</h1>
+{% if user.is_staff %}
+<form method="POST">{% csrf_token %}
+{{form|crispy}}
+<input type="submit">
+</form>
+{% endif %}
+<div class="img">
+{% for img in images %}
+
+<img style="width:40%;" src="{{img.Url}}">
+{% endfor %}
+</img>
+</div>
+{% endblock %}

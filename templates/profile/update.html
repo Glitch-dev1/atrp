@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% block title %}
+Profile Update
 {% endblock %}
-
+{% block navprofile %}
+active
+{% endblock %}
 {% block style %}
 <style>
   body {
@@ -9,13 +13,28 @@
     margin: 0;
     padding: 0;
   }
-  
+  form {
+    background: #ffffff;
+    width: 80%;
+    padding: 20px;
+    transform: translate(15%,60%);
+  }
 </style>
 {% endblock %}
-  {{form.user}}
-  {{form.as_p}}
+
 {% block content %}
-<div>
-  
+ {% for msg in messages %} 
+<div id= "alertid" class= "alert alert-danger mt-3 alert-dismissable fade show" role= "alert">{{msg}} <button data-dismiss= "alert" class= "close"><span>&times;</span></button>
 </div>
+{% endfor %}
+<form method="POST">{% csrf_token %}
+
+  <div class="user">Username :</div>
+  
+  <input class="form-contro" type="text" name="username" value="{{request.user}}">
+  <div>Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</div>
+  <div class="text-danger">{{form.errors}}</div>
+
+<input class="btn btn-success" type="submit" value="save">
+</form>
 {% endblock %}

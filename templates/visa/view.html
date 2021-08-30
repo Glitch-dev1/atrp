@@ -9,6 +9,11 @@ Visa Forms
   .ccard {
     display: none;
   }
+  .w-auto {
+    min-width: 40px;
+    white-space: nowrap;
+    width: 40%;
+  }
 </style>
 {% endblock %}
 
@@ -18,7 +23,7 @@ active
 
 {% block content %}
 {% if user.is_staff %}
-<table class="table table-bordered table-hovered  table-responsive">
+<table class="table table-responsive table-bordered">
   <tr>
     <th>Real Name</th>
     <th>Real Age</th>
@@ -29,7 +34,9 @@ active
     <th>IG Gender</th>
     <th>Read Rules</th>
     <th>RP Experience</th>
-    <th>Character Story</th>
+    <th class="w-auto">Character Story</th>
+    <th >Username</th>
+    <th>Delete</th>
   </tr>
   {% for obj in object %}
   <tr>
@@ -43,7 +50,8 @@ active
     <td>{{obj.rprules}}</td>
     <td>{{obj.rpexp}}</td>
     <td>{{obj.characterstory}}</td>
-    
+    <td >{{obj.user}}</td>
+    <td><a class="btn btn-danger" type="button" href= "/visa/{{obj.id}}/delete">Delete</a></td>
   </tr>
   {% endfor %}
 </table>

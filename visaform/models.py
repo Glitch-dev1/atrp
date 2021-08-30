@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-
+from django.contrib.auth.models import User
 
 
 class VisaModel(models.Model):
@@ -14,7 +14,8 @@ class VisaModel(models.Model):
       ('5m', '5 months'),
       ('1y', '1 year'),
       ('a1y', 'Above 1 year')
-      )
+    )
+  user = models.TextField(null=True, blank=True)
   realname = models.CharField(max_length=25, null=True)
   gender = models.CharField(choices=genderchoices, max_length=10, default='male')
   realage = models.IntegerField(null=True)

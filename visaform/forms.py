@@ -3,14 +3,6 @@ from django import forms
 from .models import *
 
 
-class VisaForm(forms.ModelForm):
-  fieldname = forms.CharField(required=True)
-  placeholder = forms.CharField(required=True)
-  
-  class Meta:
-    model  = VisaModel
-    fields = ('__all__')
-
 class Visarform(forms.ModelForm):
   genderchoices = (
       ('male','male'),
@@ -24,6 +16,7 @@ class Visarform(forms.ModelForm):
       ('a1y', 'Above 1 year')
     
     )
+  user = forms.CharField(required=False)
   realname = forms.CharField()
   gender = forms.ChoiceField(choices=genderchoices, required=False)
   realage = forms.IntegerField()
@@ -38,10 +31,7 @@ class Visarform(forms.ModelForm):
   class Meta:
     model  = VisaModel
     fields = ('__all__')
+    
 
-class AvatarForm(forms.ModelForm):
-  
-  class Meta:
-    model = Profile
-    fields = ('__all__')
+
 

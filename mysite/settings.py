@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'visaform',
+    'server',
     
+    'crispy_forms',
     'django_email_verification',
     'allauth',
     'allauth.account',
@@ -53,25 +55,32 @@ INSTALLED_APPS = [
 def verified_callback(user):
     user.is_active = True
 
-
-EMAIL_VERIFIED_CALLBACK = verified_callback
-EMAIL_FROM_ADDRESS = os.environ['email_user']
-EMAIL_MAIL_SUBJECT = 'Confirm your email {{ user.username }}'
-
-EMAIL_MAIL_HTML = 'acc_active_email.html'
-EMAIL_MAIL_PLAIN = 'mail_body.txt'
-EMAIL_TOKEN_LIFE = 60 * 60
-EMAIL_PAGE_TEMPLATE = 'confirm_template.html'
-EMAIL_PAGE_DOMAIN = 'https://atrp.atrpforum.repl.co/'
-EMAIL_MULTI_USER = True  # optional (defaults to False)
+LOGIN_URL = "/login/"
 
 # For Django Email Backend
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ['email_user']
 EMAIL_HOST_PASSWORD = os.environ['email_pass']
 EMAIL_PORT = 587
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
+ACCOUNT_DEFAULT_HTTP_PROTOCOL='https'
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/login/'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -170,11 +179,19 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
-STATIC_URL = '/static/'
+#ADMIN_MEDIA_PREFIX = 'admin/'
+STATIC_URL = os.path.join(BASE_DIR,'static/')
 ALLOWED_HOSTS = ['*']
 X_FRAME_OPTIONS = '*'
 
-MEDIA_URL = "/images/"
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-MEDIA_ROOT = os.path.join(BASE_DIR,'images')
+
+STATIC_ROOT = "static/"
+MEDIA_URL = "images/"
+STATIC_FILES_DIRS = [
+  os.path.join(BASE_DIR, 'static')
+]
+#STATICFILES_DIRS = [
+#    BASE_DIR +  "/static",
+#    '/var/www/static/',
+#]
+MEDIA_ROOT = os.path.join(BASE_DIR,'static/images')
