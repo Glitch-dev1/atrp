@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% load socialaccount %}
-{% block title %}
-Login
-{% endblock %}
+
+
 
 {% block style %}
+<title>Login</title>
 <style>
 #formi {
   background-color : #23379B;
@@ -215,7 +215,9 @@ active
 </div>
 </a>
 </div>
+<div class='footer'>
 {% include 'footer.html' %}
+</div>
 </center><br><br>
 
 {% endblock %}

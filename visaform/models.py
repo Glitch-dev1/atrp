@@ -26,6 +26,7 @@ class VisaModel(models.Model):
   rpexp = models.CharField(choices=rpexpchoices, max_length=20, null=True)
   discordname = models.CharField(max_length=50, null=True)
   characterstory = models.TextField(null=True)
+  date_created = models.DateTimeField(auto_now_add=True, null=True)
   
 class Profile(models.Model):
   

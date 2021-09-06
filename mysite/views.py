@@ -116,3 +116,6 @@ def gallerypage(request):
   }
   return render(request, 'server/gallery.html', context)
 
+def homeage(request):
+  return render(request, 'index.html')
+

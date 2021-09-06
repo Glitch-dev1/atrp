@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     
     'visaform',
     'server',
+    'factionapp',
     
     'crispy_forms',
     'django_email_verification',
@@ -184,7 +185,7 @@ STATIC_URL = os.path.join(BASE_DIR,'static/')
 ALLOWED_HOSTS = ['*']
 X_FRAME_OPTIONS = '*'
 
-
+TIME_ZONE = 'Asia/Kolkata'
 STATIC_ROOT = "static/"
 MEDIA_URL = "images/"
 STATIC_FILES_DIRS = [

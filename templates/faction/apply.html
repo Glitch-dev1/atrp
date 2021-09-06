@@ -1,0 +1,90 @@
+{% include 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block style %}
+<title>Faction Application</title>
+<style>
+body {
+  background: #f0f0f0;
+}
+.field {
+  margin: 15px;
+}
+.form-contr {
+  position: relative;
+  outline: none;
+  font-size: 12pt;
+  height: 35px;
+  border: 1px solid #e3e3e3;
+}
+.label {
+  display:static;
+  background: #fff;
+  color: #909090;
+  position: ;
+  pointer-events: none;
+  transform: translate(6px, 37px);
+  transition: .3s;
+}
+
+.form-contr:focus {
+  outline: 2px solid #8ec1ff;
+}
+/*input:focus ~ .label,
+input:valid ~ .label {
+  color: #8ec1f5;
+}*/
+.faction {
+  
+}
+label {
+  display: static;
+}
+.whole {
+  margin-left: 25px;
+  position: ;
+  background: #fff;
+  text-align: ;
+  width: 85%;
+}
+#name:focus ~ #lname,
+#name:valid ~ #lname {
+  color: #8ec1f5;
+  transform: translate(0px,30px);
+  margin-bottom: 20px;
+}  
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="whole">
+<h1>Faction Application</h1>
+<form method="POST">
+<div class="field">
+  <label class="label"  id="lname"  for="#name">Name : </label><br>
+  <input placeholder="Name"  id="name" class="form-contr" name="name">
+  </div>
+  <div class="field">
+    <label id="lage"  class="label" for="#age">Age : </label><br>
+  <input placeholder="Age"  type="number" id="age" class="form-contr" name="age">
+  </div>
+  <div class="faction" class="field">
+    <label>Faction : </label>
+  {{form.faction}}
+  </div>
+  <div class="field">
+    <label id="lqualification"  class="label" for="#qualification">Qualification : </label><br>
+  <input placeholder="Qualification"  id="qualification" class="form-contr" name="qualification">
+  </div>
+  <div class="field">
+    <label id="lwtime"  class="label" for="#wtime">Working Time : </label><br>
+  <input placeholder="Working time"  id="wtime" class="form-contr" name="wtime">
+  </div>
+  <div class="field">
+  <label id="lexjob"  class="labe" for="#exjob">Do you already in any Previous Job? if no type None</label><input id="exjob" class="form-contr" name="exjob">
+  </div>
+  <input class="btn btn-primary" type="submit">
+</form>
+</div>
+{% endblock %}

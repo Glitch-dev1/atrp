@@ -4,6 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700" type='text/css'>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -16,7 +17,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-    <title>{% block title %}Home{% endblock %}</title>
+
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One');
@@ -29,6 +31,16 @@
   .nav-link {
     font-family: 'Righteous', cursive;
   }
+.navbar {
+  position: relative;
+}
+.footer {
+  position: relative;
+  bottom: 0;
+}
+
+
+
 @media (min-width:650px) {
   .navbar-brand {
     font-family: 'Righteous', cursive;
@@ -42,10 +54,12 @@
 <style>
  
 </style>
-        {% endblock %}
-    
+  {% endblock %}
+
+
   </head>
   <body>
+
       <nav class="navbar navbar-dark bg-dark navbar-expand-md">
   {% if user.is_authenticated %}
   <a class="navbar-brand" href="#">{{ user.username }}</a>
@@ -121,8 +135,30 @@
     {% block content %}
     {% endblock %}
 
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+<!--
+<script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: '4b193f0a-1d56-4878-8ebf-4bc74221cf34', f: true }); done = true; } }; })();</script>-->
+
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/612cb189d6e7610a49b2af5b/1feb9b10c';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--
+<script type="text/javascript">function add_chatinline(){var hccid=51841211;var nt=document.createElement("script");nt.async=true;nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;var ct=document.getElementsByTagName("script")[0];ct.parentNode.insertBefore(nt,ct);}
+add_chatinline();</script>
+-->
   </body>
 </html>

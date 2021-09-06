@@ -5,6 +5,7 @@ Visa Forms
 {% endblock %}
 
 {% block style %}
+<title>Visa Admin</title>
 <style>
   .ccard {
     display: none;
@@ -51,6 +52,7 @@ active
     <td>{{obj.rpexp}}</td>
     <td>{{obj.characterstory}}</td>
     <td >{{obj.user}}</td>
+    <td>{{obj.date_created}}</td>
     <td><a class="btn btn-danger" type="button" href= "/visa/{{obj.id}}/delete">Delete</a></td>
   </tr>
   {% endfor %}

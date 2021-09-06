@@ -26,6 +26,7 @@ from .views import *
 
 urlpatterns = [
     path('profile/update/', profile_update, name="profile_update"),
+    path('faction/', include('factionapp.urls')),
     path('admin/', admin.site.urls),
     path('', homepage, name="home"),
     path('send_mail/', sendMail, name="send_mail"),
