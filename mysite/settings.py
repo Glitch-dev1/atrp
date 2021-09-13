@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'visaform',
     'server',
     'factionapp',
+    'audio',
     
     'crispy_forms',
     'django_email_verification',

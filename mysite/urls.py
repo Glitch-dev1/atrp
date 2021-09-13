@@ -25,6 +25,7 @@ from .views import *
 
 
 urlpatterns = [
+    path('', include('audio.urls')),
     path('profile/update/', profile_update, name="profile_update"),
     path('faction/', include('factionapp.urls')),
     path('admin/', admin.site.urls),
