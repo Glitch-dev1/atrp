@@ -44,18 +44,13 @@ input:valid ~ .label {
   text-align: ce;
   width: 85%;
 }
-#name:focus ~ #lname,
-#name:valid ~ #lname {
-  color: #8ec1f5;
-  transform: translate(0px,30px);
-  margin-bottom: 20px;
-}  
+  
 </style>
 {% endblock %}
 
 {% block content %}
 <div class="whole">
-<h1>Faction Application</h1>
+<h1 class="" >Faction Application</h1>
 <form method="POST">
 <div class="field">
   <label class="label"  id="lname"  for="#name">Name : </label><br>

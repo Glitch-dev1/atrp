@@ -13,4 +13,4 @@ def factionApply(request):
   context = {
     "form": form
   }
-  return render(request, 'faction/apply.html', context)
+  return render(request, 'faction/appy.html', context)
