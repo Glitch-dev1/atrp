@@ -19,6 +19,7 @@ from django.conf.urls import url
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.static import serve
 
 from .views import *
 
@@ -37,6 +38,9 @@ urlpatterns = [
     path('logout/', logoutpage, name="Logout"),
     path('accounts/', include('allauth.urls')),
     path('gallery/', gallerypage, name="gallery_page"),
+
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
     
     path('password_change/done/', auth_views.PasswordChangeDoneView.as_view(template_name='registration/password_change_done.html'), 
         name='password_change_done'),
