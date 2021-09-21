@@ -39,6 +39,7 @@ google-auth-oauthlib==0.4.6
 google-pasta==0.2.0
 greenlet==1.1.1
 grpcio==1.40.0
+gunicorn @ file:///home/runner/.cache/pypoetry/artifacts/eb/33/9c/43e158642e15413395d933fef80bb16fa6b50a6ed8dd157f506b6b2c03/gunicorn-20.1.0-py3-none-any.whl
 h5py==2.10.0
 html5lib==1.1
 idna==3.2
@@ -119,6 +120,7 @@ urllib3==1.26.6
 virtualenv==20.7.2
 webencodings==0.5.1
 Werkzeug==2.0.1
+whitenoise @ file:///home/runner/.cache/pypoetry/artifacts/e8/a2/75/4e726663ca0002d28f4ee57aae40c4499be2945e4d6aa7b2678f2de8e8/whitenoise-5.3.0-py2.py3-none-any.whl
 wrapt==1.12.1
 yapf==0.31.0
 yarg==0.1.9
