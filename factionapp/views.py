@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .forms import *
+from .forms import FacForm
 
 def factionApply(request):
   if request.method == 'POST':

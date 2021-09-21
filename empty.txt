@@ -14,3 +14,7 @@ def gallerypage(request):
     "images": images
   }
   return render(request, 'server/gallery.html', context)
+
+h1{
+  
+}
