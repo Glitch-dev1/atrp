@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .forms import *
+from .forms import FacForm
 
 def factionApply(request):
   if request.method == 'POST':
@@ -13,4 +13,4 @@ def factionApply(request):
   context = {
     "form": form
   }
-  return render(request, 'faction/appy.html', context)
+  return render(request, 'faction/apply.html', context)
