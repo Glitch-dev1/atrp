@@ -13,6 +13,7 @@ certifi==2021.5.30
 cffi==1.14.6
 chardet==4.0.0
 charset-normalizer @ file:///home/runner/.cache/pypoetry/artifacts/83/43/9c/7775ce3f54c83997d39feab23451f9f9cef9aa2f5f88368aba882a56d6/charset_normalizer-2.0.5-py3-none-any.whl
+clang @ file:///home/runner/.cache/pypoetry/artifacts/10/ac/46/a1e0ff5a3465dab262e61fc39a71f0a7bcdca25a078a4f1ad5ee4b4805/clang-5.0.tar.gz
 cleo==0.8.1
 click==8.0.1
 clikit==0.6.2
@@ -30,9 +31,10 @@ django-email-verification @ file:///home/runner/.cache/pypoetry/artifacts/60/c5/
 docopt==0.6.2
 filelock==3.0.12
 Flask==2.0.1
+flatbuffers @ file:///home/runner/.cache/pypoetry/artifacts/aa/f1/7e/57fd11edd5b2c62354deb3638846bf457f869cfb6eb06645a6ec505adc/flatbuffers-1.12-py2.py3-none-any.whl
 funcsigs==1.0.2
 future==0.18.2
-gast==0.3.3
+gast @ file:///home/runner/.cache/pypoetry/artifacts/bb/11/ca/2521ff79f66e75163034e71b2a3b580b4ec9cb3967ce08266fc55da06c/gast-0.4.0-py3-none-any.whl
 glfw==2.2.0
 google-auth==1.35.0
 google-auth-oauthlib==0.4.6
@@ -40,7 +42,7 @@ google-pasta==0.2.0
 greenlet==1.1.1
 grpcio==1.40.0
 gunicorn @ file:///home/runner/.cache/pypoetry/artifacts/eb/33/9c/43e158642e15413395d933fef80bb16fa6b50a6ed8dd157f506b6b2c03/gunicorn-20.1.0-py3-none-any.whl
-h5py==2.10.0
+h5py @ file:///home/runner/.cache/pypoetry/artifacts/7f/72/5d/4e83293f7117dc8b4bdebb63cefc313bdc02268760f020ed7817f38500/h5py-3.1.0-cp38-cp38-manylinux1_x86_64.whl
 html5lib==1.1
 idna==3.2
 importlib-metadata==3.10.1
@@ -49,6 +51,7 @@ jedi==0.15.2
 jeepney==0.7.1
 Jinja2==3.0.1
 joblib==1.0.1
+keras @ file:///home/runner/.cache/pypoetry/artifacts/52/d0/5f/5ab5a7868721885d5ffabdace78163b73d376a29174dd04ae5dadbe9b6/keras-2.6.0-py2.py3-none-any.whl
 Keras-Preprocessing==1.1.2
 keyring==21.8.0
 kiwisolver==1.3.2
@@ -59,7 +62,7 @@ matplotlib==3.4.3
 msgpack==1.0.2
 multidict==5.1.0
 nltk==3.6.2
-numpy==1.21.2
+numpy @ file:///home/runner/.cache/pypoetry/artifacts/43/62/9c/57636b66454eb8457b38bdb776593ce5ba63ffdb0e3f5554866d143d20/numpy-1.19.5-cp38-cp38-manylinux2010_x86_64.whl
 oauthlib==3.1.1
 opt-einsum==3.3.0
 packaging==20.9
@@ -73,7 +76,7 @@ platformdirs==2.3.0
 pluggy==0.13.1
 poetry==1.1.6
 poetry-core==1.0.4
-protobuf==3.17.3
+protobuf @ file:///home/runner/.cache/pypoetry/artifacts/d4/6a/28/a4d9b5bbc0b209eccd2ca5525460a67797749353835e08d33571d411f2/protobuf-3.18.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
 ptyprocess==0.7.0
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
@@ -102,14 +105,15 @@ rsa==4.7.2
 scipy==1.4.1
 SecretStorage==3.3.1
 shellingham==1.4.0
-six==1.16.0
+six @ file:///home/runner/.cache/pypoetry/artifacts/be/98/c7/69fe6fea7a59659af1c6260899226129565330b1e07c9c5b3769be76bf/six-1.15.0-py2.py3-none-any.whl
 sounddevice==0.4.2
 SQLAlchemy==1.4.23
 sqlparse==0.4.2
-tensorboard==2.2.2
+tensorboard @ file:///home/runner/.cache/pypoetry/artifacts/48/16/51/a5ad6a810a4894f360e9b2f6ea07a1c3a8c73430699bdded9fc39a1be5/tensorboard-2.6.0-py3-none-any.whl
+tensorboard-data-server @ file:///home/runner/.cache/pypoetry/artifacts/00/59/84/14d222b8b99200f32c951408eb2916f733292916b0f40eeddeea089363/tensorboard_data_server-0.6.1-py3-none-manylinux2010_x86_64.whl
 tensorboard-plugin-wit==1.8.0
-tensorflow-cpu @ https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow_cpu-2.2.0-cp38-cp38-manylinux2010_x86_64.whl
-tensorflow-estimator==2.2.0
+tensorflow-cpu @ file:///home/runner/.cache/pypoetry/artifacts/23/a6/24/0f3eebd08972951c7c265a607f4963b3d84cf3eb8fccce69e9aab1b0d6/tensorflow_cpu-2.6.0-cp38-cp38-manylinux2010_x86_64.whl
+tensorflow-estimator @ file:///home/runner/.cache/pypoetry/artifacts/25/14/5b/fe3ee886111067c978a51e2e2decafd63b691d4e27487aea31196ce22e/tensorflow_estimator-2.6.0-py2.py3-none-any.whl
 termcolor==1.1.0
 toml==0.10.2
 tomlkit==0.7.2
